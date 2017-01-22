@@ -1,5 +1,98 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+body{
+	color:#575756;
+	margin-bottom:50px;
 }
+
+p{
+	font-size:14px;
+	line-height:22px;
+}
+
+a:hover{
+	color:#575756;
+}
+
+.active {
+  text-decoration: underline;
+	color:#575756;
+}
+
+.active:focus, .active:hover{
+	color:#575756;
+}
+
+.navLink{
+	display:inline;
+}
+
+
+#header{
+	padding-bottom:10px;
+	margin-bottom:20px;
+	border-bottom-style:solid;
+}
+
+.article{
+	padding:15px;
+	marigin-top:20px;
+	background-color:#fbba00;
+	
+}
+
+.article ul{
+	list-style:none;
+	padding-left:10px;
+	display:inline;
+	font-size:1.3em;
+}
+
+
+ul li{
+	display:inline;
+	margin-right:20px;
+	color:#575756;
+}
+
+a{
+	color:#575756;
+}
+
+
+.mark, mark{
+	background-color:#e5e3fc;
+	padding:0px;
+}
+
+#text{
+}
+
+#keywordsDiv{
+	margin-top:20px;
+	width:220px;
+	padding:10px;
+	padding-bottom:30px;
+	color:#fbba00;
+	background-color:#575756;
+	border-radius:5px;
+}
+
+#myform{
+	margin-bottom:10px;
+	font-size:1.2em;
+}
+
+.btn{
+	margin:1px;
+	font-size:1.05em;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+
+
+
+
+

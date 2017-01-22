@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "mark.js": "github:julmot/mark.js",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "mark.js": "github:julmot/mark.js",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
