@@ -4,9 +4,11 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
+import 'bootstrap/js/affix.js'
 
 import App from './modules/App'
 
@@ -15,6 +17,7 @@ import Article2 from './modules/Article2'
 import Article3 from './modules/Article3'
 import Article4 from './modules/Article4'
 import Article5 from './modules/Article5'
+
 
 render((
 	<Router history={browserHistory}>
