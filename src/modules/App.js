@@ -1,12 +1,7 @@
 import React from 'react'
 import Mark from 'mark.js'
 
-import KeywordsFeature from './KeywordsFeature'
-
-import Checkbox from './Checkbox'
 import Keywords from './Keywords'
-import Input from './Input'
-import Frequency from './Frequency'
 import Options from './Options'
 
 import ArticleLinks from './ArticleLinks'
