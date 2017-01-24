@@ -8,6 +8,10 @@ p{
 	line-height:22px;
 }
 
+.container{
+	max-width:960px;
+}
+
 a:hover{
 	color:#575756;
 }
