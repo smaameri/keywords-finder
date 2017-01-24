@@ -16,11 +16,11 @@ import 'bootstrap/js/collapse.js'
 
 import App from './modules/App'
 
-import Article1 from './modules/Article1'
-import Article2 from './modules/Article2'
-import Article3 from './modules/Article3'
-import Article4 from './modules/Article4'
-import Article5 from './modules/Article5'
+import Article1 from './modules/Articles/Article1'
+import Article2 from './modules/Articles/Article2'
+import Article3 from './modules/Articles/Article3'
+import Article4 from './modules/Articles/Article4'
+import Article5 from './modules/Articles/Article5'
 
 
 render((

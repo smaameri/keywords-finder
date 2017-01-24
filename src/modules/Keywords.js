@@ -3,18 +3,17 @@ import React from 'react'
 export default React.createClass({
 	
 	propTypes(){
-		myFunc2:React.PropTypes.func
+		highlightFunction:React.PropTypes.func
 	},
 	
 	getInitialState(){
 		return {
-			showFrequency:this.props.showFrequency
 		}
 	},
 	
 	handleClick(event){
 		console.log(event.target.value);
-		this.props.myFunc2(event);
+		this.props.highlightFunction(event);
 	},
 	
 	render(){

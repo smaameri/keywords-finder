@@ -3,32 +3,29 @@ import React from 'react'
 export default React.createClass({
 	
 	propTypes(){
-		myFunc: React.PropTypes.func
+		highlightAllCheckedFunction: React.PropTypes.func
 	},
 	
   getInitialState() {          
     return {
 	    checked:this.props.checked,
 			keys:this.props.keywords,
-		
 		};
   },
 	
 	highlightText(){
-		if(this.state.checked == true){
+		if(this.state.checked === true){
 			this.setState({checked: false})
-			this.props.myFunc(false);
+			this.props.highlightAllCheckedFunction(false);
 		}
 		else{
 			this.setState({checked: true});
-			this.props.myFunc(true);
+			this.props.highlightAllCheckedFunction(true);
 		}
 	
 	},
 	
 	check(checked){
-		console.log('checked state to put');
-		console.log(checked);
 		this.setState({checked:checked});
 	},
 	

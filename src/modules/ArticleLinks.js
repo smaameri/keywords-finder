@@ -1,20 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router'
 
 import NavLink from './NavLink'
 
-import Article1 from './Article1'
-import Article2 from './Article2'
-import Article3 from './Article3'
-import Article4 from './Article4'
-import Article5 from './Article5'
-
+import Article1 from './Articles/Article1'
+import Article2 from './Articles/Article2'
+import Article3 from './Articles/Article3'
+import Article4 from './Articles/Article4'
+import Article5 from './Articles/Article5'
 
 export default React.createClass({
 	
 	propTypes(){
-		articleFunction: React.PropTypes.func;
-		clearCheckboxFunction:React.PropTypes.func;
 		loadArticle:React.PropTypes.func;
 	},
 	
@@ -22,9 +18,6 @@ export default React.createClass({
 		return{
 			article:<Article1 />
 		}
-	},
-	
-	clearCheckbox(){
 	},
 	
 	handleClick(event){
@@ -35,7 +28,7 @@ export default React.createClass({
 	render(){
 		return(
 			<div className='article'>
-				<ul onClick={this.clearCheckbox}>			
+				<ul>			
 					<li><NavLink to='/Article1'  onClick={this.handleClick} value={<Article1 />}>Article 1</NavLink></li>
 					<li><NavLink to='/Article2'  onClick={this.handleClick} value={<Article2 />}>Article 2</NavLink></li>
 					<li><NavLink to='/Article3'  onClick={this.handleClick} value={<Article3 />}>Article 3</NavLink></li>

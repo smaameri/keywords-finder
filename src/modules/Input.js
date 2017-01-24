@@ -21,7 +21,7 @@ export default React.createClass({
 	
 		var value = event.target.value
     var regex=/^[0-9]+$/;
-    if (!value.match(regex) && (value != "")){
+    if (!value.match(regex) && (value !== "")){
         console.log("Must input numbers");
 				event.target.value = this.state.lastValue
 				return
@@ -44,7 +44,7 @@ export default React.createClass({
 				 id='frequencyInput'
 				  >
 				  <div className="form-group">
-				    <label for="exampleInputName2">Number of results</label>
+				    <label>Number of results</label>
 				    <input
 				 			type="text"
 				 			id="formInput"
