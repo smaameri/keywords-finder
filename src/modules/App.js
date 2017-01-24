@@ -3,7 +3,10 @@ import Mark from 'mark.js'
 
 import Checkbox from './Checkbox'
 import Keywords from './Keywords'
-import Test from './Test'
+import Input from './Input'
+import Frequency from './Frequency'
+
+
 
 import ArticleLink from './ArticleLink'
 
@@ -16,11 +19,14 @@ export default React.createClass({
 	getInitialState: function() {
 	    return {
 				keywords: [],
+				keywordsRaw:[],
+				cutOff:10,
 				markInstance:'',
 				article:'1',
 				checked:false,
 				orange:'#fbba00',
-				display:<Article1 />
+				display:<Article1 />,
+				showFrequency:false,
 				
 			};
 	  },                                               
@@ -29,11 +35,9 @@ export default React.createClass({
 			
       console.log("component did mount");
 			var text = document.getElementById('text').textContent;
-			var keywords = getKeywords(text, 10);
-			console.log(keywords);
+			this.keywordTags();
 			//set states after page load
 			this.setState({markInstance:new Mark(document.querySelector(".context"))});			
-			this.setState({keywords:keywords});
 	  },
 		
 		componentDidUpdate(){
@@ -43,21 +47,68 @@ export default React.createClass({
 		keywordTags(){
 			console.log('article');
 			var text = document.getElementById('text').textContent;
-			var keywords = getKeywords(text, 10);
-			this.setState({keywords:keywords}, function(){
-				this.clearCheckbox();
-			});
+			var keywords_frequencies = getKeywords(text, this.state.cutOff);
+			keywords_frequencies=keywords_frequencies.slice(0, 19);
+			console.log('keywords_frequencies');
+			console.log(keywords_frequencies);
 			
+			var keywords = [];
+			
+			console.log('boo')
+			for(var i=0;i<keywords_frequencies.length;i++){
+				keywords[i] = keywords_frequencies[i][0];
+				console.log(keywords_frequencies[i][0])
+			}
+			
+			console.log('keywords')
+			console.log(keywords);
+			
+			this.setState({keywordsRaw:keywords_frequencies}, function(){
+				this.setState({keywords:keywords_frequencies.slice(0,this.state.cutOff)}, function(){
+					this.clearCheckbox();
+					this.showFrequency(this.state.showFrequency)
+				});
+			});
+	},
+	
+	numberKeywords(value){
+		var keywords = this.state.keywordsRaw.slice(0, value);
+		this.setState({cutOff:value}, function(){
+			this.setState({keywords:keywords}, function(){
+			 	var instance = this.state.markInstance;
+				instance.unmark();
+				this.highlightAllChecked(this.state.checked);
+				this.showFrequency(this.state.showFrequency);
+			})
+		})
+	},
+	
+	updateFrequency(checked){
+		this.setState({showFrequency:checked});
+		this.showFrequency(checked);
+	},
+	
+	showFrequency(checked){
+		var frequencyElements = document.getElementsByClassName('frequency');
+		var keywords = document.getElementsByClassName('keywords');
+		console.log(keywords[0].childNodes[6]);
+		var display, i
+		if(checked){
+			for(var i=0; i < keywords.length; i++){
+				console.log(this.state.keywords[i])
+				keywords[i].innerHTML = this.state.keywords[i][0] + " | " + this.state.keywords[i][1]
+				//keywords[i].childNodes[6].style.display=display;
+			}}
+			else{
+				for(var i=0; i < keywords.length; i++){
+					console.log(this.state.keywords[i])
+					keywords[i].innerHTML = this.state.keywords[i][0] 
+					//keywords[i].childNodes[6].style.display=display;
+				
+			}}			
 	},
 	 	 
-	 buttonElementUpdate(button, value, color){
-		 button.value = value;
-		 button.style.backgroundColor = color;
-	 },
-	 	 
 	 singleKeywordHighlight(e){
-		 
-		 
 		 var element = e.target;
 		 var keyword = element.id.substring(8);
 		 var options = {
@@ -77,12 +128,9 @@ export default React.createClass({
 	 },
 	
 	 updateCheckbox(){
-		 		 
 		 var keywords = document.getElementById('keywords').childNodes;
 		 var checkbox = document.getElementById('checkbox');
-		 		 
 		 var initialValue = keywords[0].value;
-		 
 		 function allValuesSame(){
 			 var allSame = true
 			 keywords.forEach(function(keyword){
@@ -91,9 +139,7 @@ export default React.createClass({
 				 })
 			return allSame
 	 	};
-		
 		var equal = allValuesSame();
-		
 		if(equal){
 			console.log('All values equal')
 			console.log(initialValue);
@@ -101,7 +147,6 @@ export default React.createClass({
 				this.refs.checkboxFunctions.check(false);}
 			else{this.refs.checkboxFunctions.check(true)}
 		}
-		 
 	 },
 	
 	 highlightAllChecked(checked){
@@ -116,11 +161,11 @@ export default React.createClass({
 	 	if(checked){
 		 this.state.keywords.map(function(keyword){
  	  	 var options = {
-				 "className":"highlighted-" + keyword,
+				 "className":"highlighted-" + keyword[0],
 			 	 "accuracy":{
 					 "value":'exactly',
 					 "limiters": [",", ".", "°", "(", ")"]}};
-			 instance.mark(keyword, options);})}
+			 instance.mark(keyword[0], options);})}
 	else{
 	 instance.unmark();}
 	},
@@ -128,9 +173,15 @@ export default React.createClass({
 	highlightKeywords(checked, color){
 		var buttonElementUpdate = this.buttonElementUpdate;
 		this.state.keywords.map(function(keyword){
-			 var button = document.getElementById('keyword-' + keyword)
+			 var button = document.getElementById('keyword-' + keyword[0])
 			 buttonElementUpdate(button, checked, color)})
 	},
+	
+ buttonElementUpdate(button, value, color){
+	 button.value = value;
+	 button.style.backgroundColor = color;
+ },
+	
 	
 	test(){
 		console.log('test')
@@ -154,6 +205,16 @@ export default React.createClass({
 		})
 	},
 	
+	optionsTab(){
+		console.log('options');
+		var string = document.getElementById('options-tab')
+		console.log(string);
+		if(string.innerHTML=='Show')
+			string.innerHTML='Hide'
+		else string.innerHTML = 'Show'
+		
+	},
+	
 	
 	render(){
 		return(
@@ -170,7 +231,7 @@ export default React.createClass({
 							<p>The feature could also be useful in terms of storing the keywords for each
 									article, and then using the keywords to find similar and related articles.
 									The method could help increase the relevance of articles found in 'related article'
-				 					suggestions.</p>	
+				 					suggestions.</p>
 						</div>
 						
 						<div className='col-xs-12 nopadding'>
@@ -191,7 +252,29 @@ export default React.createClass({
 									keywords={this.state.keywords}
 									myFunc={this.highlightAllChecked}
 									ref='checkboxFunctions'/>
-								<Keywords items={this.state.keywords} myFunc2={this.singleKeywordHighlight}/>
+								<div id="options">
+									<a
+									 data-toggle="collapse"
+									 href="#collapseExample"
+									 aria-expanded="false"
+									 aria-controls="collapseExample"
+									onClick={this.optionsTab}
+									>
+									 <span id="options-tab">Show</span> advanced options
+									</a>
+									<div className="collapse" id="collapseExample">
+									  <div className="well">
+											<Frequency
+										 		showFrequencyFunction={this.updateFrequency}/>
+											<Input numberKeywordsFunction={this.numberKeywords}/>
+									  </div>
+									</div>
+								</div>
+								<Keywords 
+									items={this.state.keywords} 
+									myFunc2={this.singleKeywordHighlight}
+									showFrequency={this.state.showFrequency}
+									/>
 							</div>
 						</div>
 					</div>

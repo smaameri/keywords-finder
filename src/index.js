@@ -8,7 +8,11 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
+import 'bootstrap/js/transition.js'
 import 'bootstrap/js/affix.js'
+import 'bootstrap/js/tooltip.js'
+import 'bootstrap/js/collapse.js'
+
 
 import App from './modules/App'
 

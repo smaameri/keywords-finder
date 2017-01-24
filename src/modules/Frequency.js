@@ -3,7 +3,7 @@ import React from 'react'
 export default React.createClass({
 	
 	propTypes(){
-		myFunc: React.PropTypes.func
+		showFrequencyFunction: React.PropTypes.func
 	},
 	
   getInitialState() {          
@@ -32,21 +32,25 @@ export default React.createClass({
 		this.setState({checked:checked});
 	},
 	
+	handleChange(event){
+		console.log(event.target.checked);
+		this.props.showFrequencyFunction(event.target.checked);
+	},
+	
 	render(){		
 		return(
 			<div>
-				<form id="myform">
-					<div className="checkbox">
-					  <label>
+				<form>
+				  <div className="checkbox">
+				    <label>
 							<input
-							  type="checkbox"
-								id="checkbox"
-							  checked={this.state.checked}
-								value={this.state.checked}
-								onChange={this.highlightText}/>
-								Highlight All
-					  </label>
-					</div>
+						 		type="checkbox"
+						 		id="frequency"
+						 		value={this.state.checked}
+							  onChange={this.handleChange}/>
+								Show keyword frequency
+				    </label>
+				  </div>
 				</form>
 			</div>
 		)

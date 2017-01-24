@@ -6,6 +6,12 @@ export default React.createClass({
 		myFunc2:React.PropTypes.func
 	},
 	
+	getInitialState(){
+		return {
+			showFrequency:this.props.showFrequency
+		}
+	},
+	
 	handleClick(event){
 		console.log(event.target.value);
 		this.props.myFunc2(event);
@@ -14,19 +20,18 @@ export default React.createClass({
 	render(){
  		return(
 			<div id="keywords">
-					{
-						this.props.items.map(function(item){
-							return  <button 
-												className={"btn btn-default btn-xs keyword-" + item}
-						  					id={'keyword-' + item}
-												key={item}
-												value={false}
-												onClick={this.handleClick}
-											>
-												{item}
-											</button>
-						}, this)
-					}
+				{
+					this.props.items.map(function(item){
+						return (
+						  <button 
+								className={"keywords btn btn-default btn-xs keyword-" + item[0]}
+		  					id={'keyword-' + item[0]}
+								key={item[0]}
+								value={false}
+								onClick={this.handleClick} > 
+							</button>)
+					}, this)
+				}
 			</div>
 		)}
 })

@@ -12,6 +12,14 @@ a:hover{
 	color:#575756;
 }
 
+#frequencyInput .form-group label{
+	font-weight:normal;
+}
+
+.frequency{
+	display:none;
+}
+
 .active {
   text-decoration: underline;
 	color:#575756;
@@ -66,6 +74,35 @@ a{
 #text{
 }
 
+#options{
+	color:#fbba00;
+	margin-bottom:20px;
+	
+}
+
+#options a{
+	color:#fbba00;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:1.05em;
+}
+
+.well{
+	background-color:#575756;
+	border:1px;
+	padding:0px;
+	margin-bottom:0px;
+}
+
+#formInput{
+	margin-left:10px;
+	margin-right:10px;
+	width:40px;
+	text-align:center;
+	padding:2px;
+	height:auto;
+}
+
 #keywordsDiv{
 	margin-top:20px;
 	width:220px;
@@ -76,14 +113,18 @@ a{
 	border-radius:5px;
 }
 
+#keywordsDiv h2{
+	margin-bottom:20px;
+}
+
 #myform{
-	margin-bottom:10px;
+	margin-bottom:15px;
 	font-size:1.2em;
 }
 
 .btn{
 	margin:1px;
-	font-size:1.05em;
+	font-size:1.00em;
 }
 
 .nopadding {

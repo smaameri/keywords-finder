@@ -1,7 +1,7 @@
 {
   "name": "test-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "mark.js": "github:julmot/mark.js",
     "react-scripts": "0.8.5"
