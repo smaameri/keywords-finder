@@ -20,6 +20,10 @@ a:hover{
 	display:none;
 }
 
+
+.affix{
+	top:20px;
+}
 .active {
   text-decoration: underline;
 	color:#575756;
@@ -95,7 +99,7 @@ a{
 }
 
 #formInput{
-	margin-left:10px;
+	margin-left:0px;
 	margin-right:10px;
 	width:40px;
 	text-align:center;

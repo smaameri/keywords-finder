@@ -15,10 +15,12 @@ export default React.createClass({
 		};
   },
 	
+	componentDidMount(){
+		var inputElement = document.getElementById('formInput');
+		inputElement.value='10';
+	},
 		
 	handleChange(event){
-		console.log(event.target.value);
-	
 		var value = event.target.value
     var regex=/^[0-9]+$/;
     if (!value.match(regex) && (value !== "")){
@@ -26,14 +28,29 @@ export default React.createClass({
 				event.target.value = this.state.lastValue
 				return
     }
-		
 		if(value > 20)
 			event.target.value = 20;
-		
 		this.setState({lastValue:event.target.value})
-		
 		this.props.numberKeywordsFunction(event.target.value);
-		
+	},
+	
+	handleKeyDown(event){
+		console.log(event.keyCode);
+    if (event.keyCode === 10 || event.keyCode === 13){
+        event.preventDefault();
+				event.target.blur();
+			}
+	},
+	
+	handleBlur(event){
+		console.log('blur')
+		console.log(event.target.value);
+		var value = event.target.value
+		if(value === "" || value == '0'){
+			event.target.value=10;
+			this.setState({lastValue:event.target.value})
+			this.props.numberKeywordsFunction(event.target.value);
+		}
 	},
 	
 	render(){		
@@ -42,14 +59,19 @@ export default React.createClass({
 				<form
 				 className="form-inline"
 				 id='frequencyInput'
+				 autcomplete="off" 
+			
 				  >
 				  <div className="form-group">
-				    <label>Number of results</label>
 				    <input
 				 			type="text"
 				 			id="formInput"
 			 				className="form-control"
-			 				onChange={this.handleChange}  />
+			 				onChange={this.handleChange}
+							onKeyDown={this.handleKeyDown}
+							onBlur={this.handleBlur}
+							  />
+				    <label>Number of results</label>
 		 
 				  </div>
 				</form>

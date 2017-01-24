@@ -118,6 +118,7 @@ export default React.createClass({
 	 // they are all highlighted, it checks the 'Highlight All'
 	 //checbox, and when they are all unhighlighted it removes the 	 //check from the checkbox
 	 updateCheckbox(){
+		 console.log('up');
 		 var keywords = document.getElementById('keywords').childNodes;
 		 var initialValue = keywords[0].value;
 		 function allValuesSame(){
@@ -129,10 +130,13 @@ export default React.createClass({
 			return allSame
 	 	};
 		var equal = allValuesSame();
+		console.log('equal')
+		console.log(equal)
+		
 		if(equal){
 			if(initialValue === 'false'){
-				this.refs.checkboxFunctions.check(false);}
-			else{this.refs.checkboxFunctions.check(true)}
+				this.refs.checkboxFunctions.checkboxTick(false);}
+			else{this.refs.checkboxFunctions.checkboxTick(true)}
 		}
 	 },
 	
@@ -190,7 +194,6 @@ export default React.createClass({
 			this.getCheckboxStatus();
 		})
 	},
-	
 
 	render(){
 		return(
@@ -218,7 +221,7 @@ export default React.createClass({
 							{this.props.children}
 						</div>
 						<div className='col-xs-3'>
-							<div id="keywordsDiv" data-spy="affix" data-offset-top="0">
+							<div id="keywordsDiv" data-spy="affix" data-offset-top="305">
 								<h2>Keywords</h2>
 								<Options
 									keywords={this.state.keywords}

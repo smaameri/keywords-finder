@@ -36,11 +36,18 @@ export default React.createClass({
 		this.props.myFunc2(event);
 	},
 	
+	checkboxTick(checked){
+		this.setState({checked:checked})
+		this.refs.checkboxFunctions.check(checked);
+		console.log('ref');
+	},
+	
 	render(){
  		return(
 			<div>
 				<Checkbox
-					keywords={this.state.keywords}
+					keywords= {this.state.keywords}
+					checked = {this.state.checked}
 					highlightAllCheckedFunction={this.props.highlightAllCheckedFunction}
 					ref='checkboxFunctions'/>
 				<div id="options">
