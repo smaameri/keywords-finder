@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute, IndexRedirect } from 'react-router'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -24,7 +24,7 @@ import Article5 from './modules/Articles/Article5'
 render((
 	<Router history={browserHistory}>
 		<Route path='/' component={App}>
-			<IndexRoute component={Article1} />
+  		<IndexRedirect to="/Article1" />
 			<Route path='/Article1' component={Article1} />
 			<Route path='/Article2' component={Article2} />
 			<Route path='/Article3' component={Article3} />

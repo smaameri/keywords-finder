@@ -196,9 +196,9 @@ export default React.createClass({
 				<div className="container">					
 					<div className='row'>
 						<div className='col-xs-12' id="header">
-							<h2>Demo Page for 'Keywords Finder'</h2>
+							<h2>Demo Page for 'Keywords Finder' (built with ReactJS)</h2>
 							<p>The 'Keywords Finder' feature lists the most used words in the article, not including common
-				 					words such as 'I', 'the', 'can' e.t.c. The user the ability to
+				 					words such as 'I', 'the', 'can' e.t.c. The user has the ability to
 				 				</p>
 				 			<ul>
 								<li>highlight the keywords all at once, or individually,</li>
