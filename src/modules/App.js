@@ -197,10 +197,17 @@ export default React.createClass({
 					<div className='row'>
 						<div className='col-xs-12' id="header">
 							<h2>Demo Page for 'Keywords Finder'</h2>
-							<p>The 'Keywords Finder' feature lists the 10 most used words in the article, and gives the user the ability
-				 				to highlight each of these keywords. The aim of the feature is to help the reader
-								get a quick overview of the article by displaying the most used words, as well as to help
-								the reader scan the article by highlighting the keywords in the text.
+							<p>The 'Keywords Finder' feature lists the most used words in the article, not including common
+				 					words such as 'I', 'the', 'can' e.t.c. The user the ability to
+				 				</p>
+				 			<ul>
+								<li>highlight the keywords all at once, or individually,</li>
+								<li>display the number of times a keyword is used</li>
+								<li>select the number of keywords to display</li>
+							</ul>
+							<p>The aim of the feature is to help the reader
+								get a quick overview of the article by displaying and highlighting the most used words, as well as to help
+								the reader scan the article quickly.
 				 			</p>
 							<p>The feature could also be useful in terms of storing the keywords for each
 									article, and then using the keywords to find similar and related articles.

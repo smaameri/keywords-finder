@@ -51,6 +51,12 @@ export default React.createClass({
 			this.setState({lastValue:event.target.value})
 			this.props.numberKeywordsFunction(event.target.value);
 		}
+		if(value == '0'){
+			event.target.value=1;
+			this.setState({lastValue:event.target.value})
+			this.props.numberKeywordsFunction(event.target.value);
+		}
+		
 	},
 	
 	render(){		
@@ -58,9 +64,7 @@ export default React.createClass({
 			<div >
 				<form
 				 className="form-inline"
-				 id='frequencyInput'
-				 autcomplete="off" 
-			
+				 id='frequencyInput'			
 				  >
 				  <div className="form-group">
 				    <input
