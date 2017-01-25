@@ -223,7 +223,7 @@ export default React.createClass({
 							{this.props.children}
 						</div>
 						<div className='col-xs-3'>
-							<div id="keywordsDiv" data-spy="affix" data-offset-top="305">
+							<div id="keywordsDiv" data-spy="affix" data-offset-top="360">
 								<h2>Keywords</h2>
 								<Options
 									keywords={this.state.keywords}
