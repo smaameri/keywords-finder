@@ -1,4 +1,4 @@
-'Keywords Finder' (built with ReactJS)
+<h2>'Keywords Finder' (built with ReactJS)</h2>
 
 The 'Keywords Finder' feature lists the most used words in the article, not including common words such as 'I', 'the', 'can' e.t.c. The user has the ability to
 
