@@ -13,6 +13,6 @@ The feature could also be useful in terms of storing the keywords for each artic
 
 Demo on: http://keywords-finder.herokuapp.com/
 
-This has now also been turned in a Chrome Extension and can be found at:
-https://chrome.google.com/webstore/detail/keyword-finder/lcdcicohemdgdhehhneodoicgaajpohi
+<h2>Chrome Extension</h2>
+This has now also been turned in a Chrome Extension and can be found <a href="https://chrome.google.com/webstore/detail/keyword-finder/lcdcicohemdgdhehhneodoicgaajpohi">here</a>.
 
