@@ -12,3 +12,7 @@ The aim of the feature is to help the reader get a quick overview of the article
 The feature could also be useful in terms of storing the keywords for each article, and then using the keywords to find similar and related articles. The method could help increase the relevance of articles found in 'related article' suggestions.
 
 Demo on: http://keywords-finder.herokuapp.com/
+
+This has now also been turned in a Chrome Extension and can be found at:
+https://chrome.google.com/webstore/detail/keyword-finder/lcdcicohemdgdhehhneodoicgaajpohi
+
